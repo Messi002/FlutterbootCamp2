@@ -1,11 +1,13 @@
-//ignore:prefer_const_constructors
+
+
+// ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
 
-void main() => runApp(const Quizzler());
+void main() => runApp(const MyApp());
 
-class Quizzler extends StatelessWidget {
-  const Quizzler({Key ? key}):super(key: key);
+class MyApp extends StatelessWidget {
+  const MyApp({Key ? key}):super(key: key);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -26,10 +28,16 @@ class QuizPage extends StatefulWidget {
   const QuizPage({Key ? key}):super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _QuizPageState createState() => _QuizPageState();
 }
-
+  
 class _QuizPageState extends State<QuizPage> {
+List<Widget> scoreKeeper = [];
+List<String> questions = [
+  'You can lead a cow down stairs but not up stairs.',
+];
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -68,7 +76,11 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-                //The user picked true.
+               setState(() {
+                 scoreKeeper.add(
+                  Icon(Icons.check, color: Colors.green,)
+                 );
+               });
               },
             ),
           ),
@@ -89,12 +101,18 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-                //The user picked false.
+                   setState(() {
+                 scoreKeeper.add(
+                  Icon(Icons.close, color: Colors.green,)
+                 );
+               });
               },
             ),
           ),
         ),
-        //TODO: Add a Row here as your score keeper
+        Row(
+          children: scoreKeeper
+        ),
       ],
     );
   }
