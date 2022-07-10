@@ -40,8 +40,20 @@ class _QuizPageState extends State<QuizPage> {
 
   void checkAnswer(bool userPickedAnswer) {
     bool correctAnswers = quizbrain.getAnswers();
+
+
  setState(() {
-    if (userPickedAnswer == correctAnswers) {
+
+    if(quizbrain.isFinished()== true){
+
+      Alert(context: context, title: "Thanks for playing", desc: "End of game reached").show();
+      quizbrain.reset();
+      // scoreKeeper.clear();
+       scoreKeeper.clear();
+
+    }
+    else{
+      if (userPickedAnswer == correctAnswers) {
       scoreKeeper.add(Icon(Icons.check, color: Colors.green));
     } else {
       scoreKeeper.add(Icon(Icons.close, color: Colors.red));
@@ -49,14 +61,14 @@ class _QuizPageState extends State<QuizPage> {
 
    
       quizbrain.nextQuestion();
+    }
+    
      
     });
   }
 
  
-if(Quizbrain.isFinished()){
 
-}
 
 
 

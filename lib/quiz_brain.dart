@@ -15,7 +15,7 @@ Question(q: 'Approximately one quarter of human bones are in the feet.', a: true
  Question(q: 'In London, UK, if you happen to die in the House of Parliament, you are technically entitled to a state funeral, because the building is considered too sacred a place.', a: true),
  Question(q: 'The loudest sound produced by any animal is 188 decibels. That animal is the African Elephant.', a: false),
  Question(q: 'The total surface area of two human lungs is approximately 70 square metres.', a: true),
- Question(q: 'Google was originally called \"Backrub\".', a: true),
+ Question(q: 'Google was originally called "Backrub".', a: true),
  Question(q:     'Chocolate affects a dog\'s heart and nervous system; a few ounces are enough to kill a small dog.', a: true),
  Question(q: 'In West Virginia, USA, if you accidentally hit an animal with your car, you are free to take it home to eat.', a: true),
 
@@ -35,8 +35,17 @@ bool getAnswers(){
   return _questionbank[_questionNum].a;
 }
 
-bool isFinished(){
-     return (_questionNum < _questionbank.length - 1) && true;
-  
+ bool isFinished() {
+    if (_questionNum >= _questionbank.length - 1) {
+      print('Now returning true');
+      return true;
+
+    } else {
+      return false;
+    }
+  }
+
+void reset(){
+  _questionNum = 0;
 }
 }
