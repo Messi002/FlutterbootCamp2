@@ -1,7 +1,11 @@
 import 'questions.dart';
 
 class Quizbrain{
-    List<Question> _questionbank=[
+
+  int _questionNum = 0;
+
+
+   final List<Question> _questionbank=[
 Question(q: 'You can lead a cow down stairs but not up stairs.', a: false),
 Question(q: 'Approximately one quarter of human bones are in the feet.', a: true),
  Question(q: 'A slug\'s blood is green.', a: true),
@@ -18,10 +22,16 @@ Question(q: 'Approximately one quarter of human bones are in the feet.', a: true
 
 ];
 
-String getQuestions(int questionNum){
-  return _questionbank[questionNum].q;
+void nextQuestion(){
+  if(_questionNum < _questionbank.length - 1) {
+    _questionNum++;
+  }
 }
-bool getAnswers(int questionNum){
-  return _questionbank[questionNum].a;
+
+String getQuestions(){
+  return _questionbank[_questionNum].q;
+}
+bool getAnswers(){
+  return _questionbank[_questionNum].a;
 }
 }

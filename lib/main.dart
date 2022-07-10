@@ -4,6 +4,8 @@
 
 import 'package:flutter/material.dart';
 import 'quiz_brain.dart';
+Quizbrain quizbrain= Quizbrain();
+
 
 
 void main() => runApp(const MyApp());
@@ -37,10 +39,6 @@ class QuizPage extends StatefulWidget {
 class _QuizPageState extends State<QuizPage> {
 List<Widget> scoreKeeper = [];
 
-Quizbrain quizbrain= Quizbrain();
-
-int questionNum = 0;
-
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +53,7 @@ int questionNum = 0;
             child: Center(
               child: Text(
                 // questionbank[questionNum].q
-                quizbrain.getQuestions(questionNum),
+                quizbrain.getQuestions(),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -81,9 +79,9 @@ int questionNum = 0;
                 ),
               ),
               onPressed: () {
-                bool correctAnswers = quizbrain.getAnswers(questionNum);
+                bool correctAnswers = quizbrain.getAnswers();
                setState(() {
-                questionNum++;
+                 quizbrain.nextQuestion();
                  scoreKeeper.add(
                   Icon(Icons.check, color: Colors.green,)
                  );
@@ -109,7 +107,7 @@ int questionNum = 0;
               ),
               onPressed: () {
                    setState(() {
-                questionNum--;
+               quizbrain.nextQuestion();
 
                  scoreKeeper.add(
                   Icon(Icons.close, color: Colors.red,)
