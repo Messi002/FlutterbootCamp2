@@ -2,8 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'quiz_brain.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
-Quizbrain quizbrain = Quizbrain();
+ Quizbrain quizbrain = Quizbrain();
 
 void main() => runApp(const MyApp());
 
@@ -34,24 +35,30 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
-  List<Widget> scoreKeeper = [];
+ 
+  List<Icon> scoreKeeper = [];
 
   void checkAnswer(bool userPickedAnswer) {
     bool correctAnswers = quizbrain.getAnswers();
-
+ setState(() {
     if (userPickedAnswer == correctAnswers) {
       scoreKeeper.add(Icon(Icons.check, color: Colors.green));
     } else {
       scoreKeeper.add(Icon(Icons.close, color: Colors.red));
     }
 
-    setState(() {
+   
       quizbrain.nextQuestion();
-      //  scoreKeeper.add(
-      //   Icon(Icons.check, color: Colors.green,)
-      //  );
+     
     });
   }
+
+ 
+if(Quizbrain.isFinished()){
+
+}
+
+
 
   @override
   Widget build(BuildContext context) {

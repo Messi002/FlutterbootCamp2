@@ -34,4 +34,9 @@ String getQuestions(){
 bool getAnswers(){
   return _questionbank[_questionNum].a;
 }
+
+bool isFinished(){
+     return (_questionNum < _questionbank.length - 1) && true;
+  
+}
 }
