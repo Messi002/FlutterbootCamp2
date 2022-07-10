@@ -4,7 +4,7 @@ import 'story.dart';
 
 class StoryBrain{
 
-final int _storyNum = 0;
+ int _storyNum = 0;
 
 final List<Story> _storyData = [
   
@@ -50,14 +50,45 @@ String getChoice1(){
 String getChoice2(){
   return _storyData[_storyNum].choice2;
 }
+
+  void nextStory(int choiceNumber) {
+   
+    if (choiceNumber == 1 && _storyNum == 0) {
+      _storyNum = 2;
+    } else if (choiceNumber == 2 && _storyNum == 0) {
+      _storyNum = 1;
+    } else if (choiceNumber == 1 && _storyNum == 1) {
+      _storyNum = 2;
+    } else if (choiceNumber == 2 && _storyNum == 1) {
+      _storyNum = 3;
+    } else if (choiceNumber == 1 && _storyNum == 2) {
+      _storyNum = 5;
+    } else if (choiceNumber == 2 && _storyNum == 2) {
+      _storyNum = 4;
+    }
+   else if (_storyNum == 3 || _storyNum == 4 || _storyNum == 5) {
+      reset();
+    }
+  }
+
+void reset(){
+  _storyNum = 0;
+}
+
+ bool buttonShouldBeVisible() {
+    //You could also just check if (_storyNumber < 3)
+    if (_storyNum == 0 || _storyNum == 1 || _storyNum == 2) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
 //TODO: Step 23 - Use the storyNumber property inside getStory(), getChoice1() and getChoice2() so that it gets the updated story and choices rather than always just the first (0th) one.
 
 
 
 //TODO: Step 25 - Change the storyNumber property into a private property so that only story_brain.dart has access to it. You can do this by right clicking on the name (storyNumber) and selecting Refactor -> Rename to make the change across all the places where it's used.
-
-//TODO: Step 16 - Create a property called storyNumber which starts with a value of 0. This will be used to track which story the user is currently viewing.
 
 //TODO: Step 17 - Create a method called nextStory(), it should not have any outputs but it should have 1 input called choiceNumber which will be the choice number (int) made by the user.
 
