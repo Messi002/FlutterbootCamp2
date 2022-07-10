@@ -3,6 +3,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'questions.dart';
 
 void main() => runApp(const MyApp());
 
@@ -34,9 +35,15 @@ class QuizPage extends StatefulWidget {
   
 class _QuizPageState extends State<QuizPage> {
 List<Widget> scoreKeeper = [];
-List<String> questions = [
-  'You can lead a cow down stairs but not up stairs.',
+
+List<Question> questionbank=[
+Question(q: 'You can lead a cow down stairs but not up stairs.', a: false),
+Question(q: 'Approximately one quarter of human bones are in the feet.', a: true),
+ Question(q: 'A slug\'s blood is green.', a: true)
 ];
+
+int questionNum = 0;
+
 
   @override
   Widget build(BuildContext context) {
@@ -44,13 +51,13 @@ List<String> questions = [
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
-        const Expanded(
+         Expanded(
           flex: 5,
           child: Padding(
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                'This is where the question text will go.',
+                questionbank[questionNum].q,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -76,7 +83,9 @@ List<String> questions = [
                 ),
               ),
               onPressed: () {
+                bool correctAnswers = questionbank[questionNum].a;
                setState(() {
+                questionNum++;
                  scoreKeeper.add(
                   Icon(Icons.check, color: Colors.green,)
                  );
@@ -102,8 +111,10 @@ List<String> questions = [
               ),
               onPressed: () {
                    setState(() {
+                questionNum--;
+
                  scoreKeeper.add(
-                  Icon(Icons.close, color: Colors.green,)
+                  Icon(Icons.close, color: Colors.red,)
                  );
                });
               },
