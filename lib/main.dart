@@ -1,17 +1,14 @@
-
-
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import 'quiz_brain.dart';
-Quizbrain quizbrain= Quizbrain();
 
-
+Quizbrain quizbrain = Quizbrain();
 
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key ? key}):super(key: key);
+  const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -29,16 +26,32 @@ class MyApp extends StatelessWidget {
 }
 
 class QuizPage extends StatefulWidget {
-  const QuizPage({Key ? key}):super(key: key);
+  const QuizPage({Key? key}) : super(key: key);
 
   @override
   // ignore: library_private_types_in_public_api
   _QuizPageState createState() => _QuizPageState();
 }
-  
-class _QuizPageState extends State<QuizPage> {
-List<Widget> scoreKeeper = [];
 
+class _QuizPageState extends State<QuizPage> {
+  List<Widget> scoreKeeper = [];
+
+  void checkAnswer(bool userPickedAnswer) {
+    bool correctAnswers = quizbrain.getAnswers();
+
+    if (userPickedAnswer == correctAnswers) {
+      scoreKeeper.add(Icon(Icons.check, color: Colors.green));
+    } else {
+      scoreKeeper.add(Icon(Icons.close, color: Colors.red));
+    }
+
+    setState(() {
+      quizbrain.nextQuestion();
+      //  scoreKeeper.add(
+      //   Icon(Icons.check, color: Colors.green,)
+      //  );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +59,7 @@ List<Widget> scoreKeeper = [];
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
-         Expanded(
+        Expanded(
           flex: 5,
           child: Padding(
             padding: EdgeInsets.all(10.0),
@@ -67,10 +80,10 @@ List<Widget> scoreKeeper = [];
           child: Padding(
             padding: const EdgeInsets.all(15.0),
             child: TextButton(
-             style: TextButton.styleFrom(
-               primary: Colors.white,
-              backgroundColor: Colors.green,
-             ),
+              style: TextButton.styleFrom(
+                primary: Colors.white,
+                backgroundColor: Colors.green,
+              ),
               child: const Text(
                 'True',
                 style: TextStyle(
@@ -79,13 +92,7 @@ List<Widget> scoreKeeper = [];
                 ),
               ),
               onPressed: () {
-                bool correctAnswers = quizbrain.getAnswers();
-               setState(() {
-                 quizbrain.nextQuestion();
-                 scoreKeeper.add(
-                  Icon(Icons.check, color: Colors.green,)
-                 );
-               });
+                checkAnswer(true);
               },
             ),
           ),
@@ -95,9 +102,9 @@ List<Widget> scoreKeeper = [];
             padding: const EdgeInsets.all(15.0),
             child: TextButton(
               style: TextButton.styleFrom(
-               primary: Colors.white,
-              backgroundColor: Colors.red,
-             ),
+                primary: Colors.white,
+                backgroundColor: Colors.red,
+              ),
               child: const Text(
                 'False',
                 style: TextStyle(
@@ -106,20 +113,12 @@ List<Widget> scoreKeeper = [];
                 ),
               ),
               onPressed: () {
-                   setState(() {
-               quizbrain.nextQuestion();
-
-                 scoreKeeper.add(
-                  Icon(Icons.close, color: Colors.red,)
-                 );
-               });
+                checkAnswer(false);
               },
             ),
           ),
         ),
-        Row(
-          children: scoreKeeper
-        ),
+        Row(children: scoreKeeper),
       ],
     );
   }
