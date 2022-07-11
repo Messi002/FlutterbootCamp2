@@ -1,3 +1,4 @@
+import 'package:app6/appColors.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -9,11 +10,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
 // primaryColor: Colors.red, 
-primarySwatch: Colors.red,     
-  // colorScheme: ColorScheme.fromSwatch().copyWith(
-        //   secondary: Color(0xFFABE21),
+// primarySwatch: Palette.kToDark, 
+appBarTheme: const AppBarTheme(backgroundColor: Color(0xFF0A0E21)),
+textTheme: const TextTheme(bodyText2: TextStyle(color: Colors.white)),  
+scaffoldBackgroundColor: Palette.kToDark,  
+  colorScheme: ColorScheme.fromSwatch().copyWith(
+          secondary: const Color(0xFF0A0E21),
         ),
-      // ),
+      ),
       home: InputPage(),
     );
   }
@@ -33,7 +37,7 @@ class _InputPageState extends State<InputPage> {
         title: const Text('BMI CALCULATOR'),
       ),
       body: const Center(
-        child: Text('Body Text'),
+        child: Text('Body Text',),
       ),
       floatingActionButton: const FloatingActionButton(
         onPressed : null,
