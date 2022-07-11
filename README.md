@@ -1,11 +1,10 @@
-![App Brewery Banner](https://github.com/londonappbrewery/Images/blob/master/AppBreweryBanner.png)
 
 
-# Quizzler ❓
+htpps://www.colorzilla.com for colors picking
 
-## Our Goal
 
-In this tutorial we will be reviewing Stateful and Stateless Widgets as well as learning about the fundamental building blocks of Object Oriented Programming (OOP) - Classes and Objects. 
+
+
 
 
 ## What you will create
@@ -53,7 +52,7 @@ Question('Some cats are actually allergic to humans', true),
         'In West Virginia, USA, if you accidentally hit an animal with your car, you are free to take it home to eat.',
         true),
 
-```
+
 
 
 
