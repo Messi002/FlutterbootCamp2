@@ -13,7 +13,7 @@ class _InputPageState extends State<InputPage> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('BMI Calculator',style: TextStyle(fontFamily:'Pacifico'),),
+          title: const Text('Bmi Calculator',style: TextStyle(fontFamily:'Pacifico'),),
         ),
         body: Column(
           children: [
