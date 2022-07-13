@@ -1,6 +1,10 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, library_private_types_in_public_api
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, library_private_types_in_public_api, prefer_const_constructors_in_immutables
 
+import 'package:app6/app_Colors.dart';
 import 'package:flutter/material.dart';
+
+const bottomContainerHeight = 80.0;
+const containerColor = Color(0xFF1D1E33);
 
 class InputPage extends StatefulWidget {
   const InputPage({Key? key}) : super(key: key);
@@ -26,29 +30,37 @@ class _InputPageState extends State<InputPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
-                    child: ReusableCard(colour:Color(0xFF1D1E33)),
+                    child: ReusableCard(colour:containerColor),
                   ),
                   Expanded(
-                    child: ReusableCard(colour:Color(0xFF1D1E33)),
+                    child: ReusableCard(colour:containerColor),
                   ),
                 ],
               ),
             ),
             Expanded(
-             child: ReusableCard(colour:Color(0xFF1D1E33)),
+             child: ReusableCard(colour:containerColor),
             ),
             Expanded(
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
-                    child: ReusableCard(colour:Color(0xFF1D1E33)),
+                    child: ReusableCard(colour:containerColor),
                   ),
                   Expanded(
-                    child: ReusableCard(colour:Color(0xFF1D1E33)),
+                    child: ReusableCard(
+                     
+                      colour:containerColor),
                   ),
                 ],
               ),
+            ),
+            Container(
+              height: bottomContainerHeight,
+              width:double.infinity,
+              margin: EdgeInsets.only(top: 10.0),
+              color: Palette.bottomContainerMainColor,
             ),
           ],
         ),
@@ -58,11 +70,17 @@ class _InputPageState extends State<InputPage> {
 }
 
 class ReusableCard extends StatelessWidget {
-  ReusableCard({required this.colour});
-Color colour;
+
+  ReusableCard({required this.colour, this.cardChild});
+
+
+final Color colour;
+final Widget? cardChild;
+
   @override
   Widget build(BuildContext context) {
     return Container(
+      child: cardChild,
       margin: const EdgeInsets.all(15.0),
       decoration: BoxDecoration(
         boxShadow: [
