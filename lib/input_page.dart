@@ -3,7 +3,7 @@
 import 'package:app6/app_Colors.dart';
 import 'package:flutter/material.dart';
 
-const bottomContainerHeight = 80.0;
+const bottomContainerHeight = 60.0;
 const containerColor = Color(0xFF1D1E33);
 
 class InputPage extends StatefulWidget {
@@ -30,35 +30,43 @@ class _InputPageState extends State<InputPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
-                    child: ReusableCard(colour:containerColor),
+                    child: ReusableCard(
+                      colour: containerColor,
+                      cardChild: ReusableIconText(
+                        iconText:'Male', icon: Icons.male,
+                      ),
+                    ),
                   ),
                   Expanded(
-                    child: ReusableCard(colour:containerColor),
+                    child: ReusableCard(
+                      colour: containerColor,
+                       cardChild: ReusableIconText(
+                        iconText:'Female', icon: Icons.female,
+                      ),
+                    ),
                   ),
                 ],
               ),
             ),
             Expanded(
-             child: ReusableCard(colour:containerColor),
+              child: ReusableCard(colour: containerColor),
             ),
             Expanded(
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
-                    child: ReusableCard(colour:containerColor),
+                    child: ReusableCard(colour: containerColor),
                   ),
                   Expanded(
-                    child: ReusableCard(
-                     
-                      colour:containerColor),
+                    child: ReusableCard(colour: containerColor),
                   ),
                 ],
               ),
             ),
             Container(
               height: bottomContainerHeight,
-              width:double.infinity,
+              width: double.infinity,
               margin: EdgeInsets.only(top: 10.0),
               color: Palette.bottomContainerMainColor,
             ),
@@ -69,13 +77,39 @@ class _InputPageState extends State<InputPage> {
   }
 }
 
-class ReusableCard extends StatelessWidget {
+class ReusableIconText extends StatelessWidget {
+  ReusableIconText({required this.iconText, this.icon});
 
+  final IconData? icon;
+  final String iconText; 
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(
+          icon,
+          size: 80.0,
+          color: Color.fromARGB(255, 232, 232, 240),
+        ),
+        SizedBox(
+          height: 2.0,
+        ),
+        Text(iconText,
+            style: TextStyle(
+                fontSize: 18.0,
+                color: Palette.iconTextColor)),
+      ],
+    );
+  }
+}
+
+class ReusableCard extends StatelessWidget {
   ReusableCard({required this.colour, this.cardChild});
 
-
-final Color colour;
-final Widget? cardChild;
+  final Color colour;
+  final Widget? cardChild;
 
   @override
   Widget build(BuildContext context) {

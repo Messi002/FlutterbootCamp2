@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 class Palette { 
   static const bottomContainerMainColor = Color(0xFFEB1555);
+  static const iconTextColor = Color(0xFF8D8E98);
+
   
   static const MaterialColor kToDark =  MaterialColor( 0xFF0A0E21, // 0% comes in here, this will be color picked if no shade is selected when defining a Color property which doesn’t require a swatch. 
      <int, Color>{ 
