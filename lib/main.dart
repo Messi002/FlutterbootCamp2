@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:app6/app_Colors.dart';
 import 'package:flutter/material.dart';
 import 'input_page.dart';
