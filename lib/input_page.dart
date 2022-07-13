@@ -26,26 +26,26 @@ class _InputPageState extends State<InputPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
-                    child: ReusableCard(Color(0xFF1D1E33)),
+                    child: ReusableCard(colour:Color(0xFF1D1E33)),
                   ),
                   Expanded(
-                    child: ReusableCard(Color(0xFF1D1E33)),
+                    child: ReusableCard(colour:Color(0xFF1D1E33)),
                   ),
                 ],
               ),
             ),
             Expanded(
-             child: ReusableCard(Color(0xFF1D1E33)),
+             child: ReusableCard(colour:Color(0xFF1D1E33)),
             ),
             Expanded(
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
-                    child: ReusableCard(Color(0xFF1D1E33)),
+                    child: ReusableCard(colour:Color(0xFF1D1E33)),
                   ),
                   Expanded(
-                    child: ReusableCard(Color(0xFF1D1E33)),
+                    child: ReusableCard(colour:Color(0xFF1D1E33)),
                   ),
                 ],
               ),
@@ -58,7 +58,7 @@ class _InputPageState extends State<InputPage> {
 }
 
 class ReusableCard extends StatelessWidget {
-  ReusableCard(this.colour);
+  ReusableCard({required this.colour});
 Color colour;
   @override
   Widget build(BuildContext context) {
