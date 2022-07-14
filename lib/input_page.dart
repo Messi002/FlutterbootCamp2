@@ -18,28 +18,72 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   @override
-  import 'package:flutter/material.dart'; 
+  // ignore_for_file: prefer_const_constructors
 
-class Palette { 
-  static const bottomContainerMainColor = Color(0xFFEB1555);
-  static const iconTextColor = Color(0xFF8D8E98);
+import 'package:app6/app_Colors.dart';
+import 'package:flutter/material.dart';
+import 'input_page.dart';
 
-  
-  static const MaterialColor kToDark =  MaterialColor( 0xFF0A0E21, // 0% comes in here, this will be color picked if no shade is selected when defining a Color property which doesn’t require a swatch. 
-     <int, Color>{ 
-      50:  Color(0xFF0A0E21 ),//10% 
-      100:  Color(0xFF0A0E21),//20% 
-      200:  Color(0xFF0A0E21),//30% 
-      300:  Color(0xFF0A0E21),//40% 
-      400:  Color(0xFF0A0E21),//50% 
-      500:  Color(0xFF0A0E21),//60% 
-      600:  Color(0xFF0A0E21),//70% 
-      700:  Color(0xFF0A0E21),//80% 
-      800:  Color(0xFF0A0E21),//90% 
-      900:  Color(0xFF0A0E21),//100% 
-    }, 
-  ); 
-} 
+void main() => runApp(const MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key ? key}):super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData.dark().copyWith(
+  scaffoldBackgroundColor: Palette.kToDark, 
+  appBarTheme: const AppBarTheme(backgroundColor: Color(0xFF0A0E21)),
+
+   
+      
+      ),
+//       theme: ThemeData(
+
+// appBarTheme: const AppBarTheme(backgroundColor: Color(0xFF0A0E21)),
+// textTheme: const TextTheme(bodyText2: TextStyle(color: Colors.white)),  
+// scaffoldBackgroundColor: Palette.kToDark,  
+//   colorScheme: ColorScheme.fromSwatch().copyWith(
+//           secondary: Color.fromARGB(255, 177, 21, 204),
+//         ),
+//       ),
+      home: InputPage(),
+    );
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// floatingActionButton:  Theme(
+//         data: ThemeData(
+//           colorScheme: ColorScheme.fromSwatch().copyWith(
+//             secondary: Colors.purple
+//           )
+//           ),
+//         child: FloatingActionButton(
+//           onPressed : null,
+//           child: Icon(Icons.add),
+//         ),
+//       ),
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
