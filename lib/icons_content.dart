@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'app_Colors.dart';
 
 
-
 class ReusableIconText extends StatelessWidget {
   ReusableIconText({required this.iconText, this.icon});
 
@@ -26,9 +25,7 @@ class ReusableIconText extends StatelessWidget {
           height: 2.0,
         ),
         Text(iconText,
-            style: TextStyle(
-                fontSize: 18.0, fontFamily: 'Pacifico',
-                color: Palette.iconTextColor)),
+            style: labelStyle),
       ],
     );
   }

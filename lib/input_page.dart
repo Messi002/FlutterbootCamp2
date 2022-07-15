@@ -5,14 +5,10 @@ import 'package:flutter/material.dart';
 import 'icons_content.dart';
 import 'package:app6/reusable_card.dart';
 
-const bottomContainerHeight = 60.0;
-const containerColor = Color(0xFF1D1E33);
-const activeCardColor = Color(0xFF1D1E33);
-const inactiveCardColor = Color(0xFF111328);
 
-enum GenderType{
-   male,
-   female,
+enum GenderType {
+  male,
+  female,
 }
 
 class InputPage extends StatefulWidget {
@@ -22,12 +18,10 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-
   Color maleCardColour = inactiveCardColor;
   Color femaleCardColour = inactiveCardColor;
 
-  late GenderType selectedGen;
-
+   GenderType? selectedGen;
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +34,7 @@ class _InputPageState extends State<InputPage> {
           ),
         ),
         body: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Expanded(
               child: Row(
@@ -47,22 +42,33 @@ class _InputPageState extends State<InputPage> {
                 children: [
                   Expanded(
                     child: ReusableCard(
-                      onTapped: (){
+                      onTapped: () {
                         setState(() {
                           selectedGen = GenderType.male;
                         });
                       },
-                      colour: selectedGen == GenderType.male ? activeCardColor : inactiveCardColor,
+                      colour: selectedGen == GenderType.male
+                          ? activeCardColor
+                          : inactiveCardColor,
                       cardChild: ReusableIconText(
-                        iconText:'Male', icon: Icons.male,
+                        iconText: 'Male',
+                        icon: Icons.male,
                       ),
                     ),
                   ),
                   Expanded(
                     child: ReusableCard(
-                      colour: selectedGen == GenderType.female ? activeCardColor : inactiveCardColor,
-                       cardChild: ReusableIconText(
-                        iconText:'Female', icon: Icons.female,
+                      onTapped: () {
+                        setState(() {
+                          selectedGen = GenderType.female;
+                        });
+                      },
+                      colour: selectedGen == GenderType.female
+                          ? activeCardColor
+                          : inactiveCardColor,
+                      cardChild: ReusableIconText(
+                        iconText: 'Female',
+                        icon: Icons.female,
                       ),
                     ),
                   ),
@@ -70,7 +76,20 @@ class _InputPageState extends State<InputPage> {
               ),
             ),
             Expanded(
-              child: ReusableCard(colour: containerColor),
+              child: ReusableCard(colour: containerColor,
+              cardChild: Column(
+                children: [
+                  Text('HEIGHT',style: labelStyle,),
+                  SizedBox(height: 10.0,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('180',style: )
+                    ],
+                  )
+                ],
+              ),
+              ),
             ),
             Expanded(
               child: Row(
@@ -97,5 +116,3 @@ class _InputPageState extends State<InputPage> {
     );
   }
 }
-
-

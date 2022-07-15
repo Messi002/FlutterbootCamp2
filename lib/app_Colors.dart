@@ -1,5 +1,17 @@
 import 'package:flutter/material.dart'; 
 
+
+
+const labelStyle = TextStyle( fontSize: 18.0, fontFamily: 'Pacifico', color: Palette.iconTextColor);
+const bottomContainerHeight = 60.0;
+const containerColor = Color(0xFF1D1E33);
+const activeCardColor = Color(0xFF1D1E33);
+const inactiveCardColor = Color(0xFF111328);
+const KNumberTextStyle = TextStyle(
+                        fontSize: 50.0,
+                        fontWeight: FontWeight.w900,
+                      );
+
 class Palette { 
   static const bottomContainerMainColor = Color(0xFFEB1555);
   static const iconTextColor = Color(0xFF8D8E98);

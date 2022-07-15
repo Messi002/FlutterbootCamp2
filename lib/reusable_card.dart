@@ -5,9 +5,8 @@ class ReusableCard extends StatelessWidget {
 
   final Color colour;
   final Widget? cardChild;
-  final GestureTapCallback? onTapped;
-  //final void Function()? onPressed;
-
+  final GestureTapCallback? onTapped;   //or final void Function()? onPressed;  //or final VoidCallBack? onPressed;
+ 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
