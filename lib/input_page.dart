@@ -22,7 +22,8 @@ class _InputPageState extends State<InputPage> {
   Color femaleCardColour = inactiveCardColor;
 
    GenderType? selectedGen;
-   int height= 180;
+    int _height= 180;
+    int weight = 60;
 
   @override
   Widget build(BuildContext context) {
@@ -88,14 +89,28 @@ class _InputPageState extends State<InputPage> {
                     crossAxisAlignment: CrossAxisAlignment.baseline,
                     textBaseline: TextBaseline.alphabetic,
                     children: [
-                      Text('${height}',style:KNumberTextStyle),
+                      Text('${_height}',style:KNumberTextStyle),
                       Text('cm',style: labelStyle,),
                     ],
                   ),
-                  Slider.adaptive(value: height.toDouble(), 
-                  min: 120.0,
-                  max: 220.0,
-                  onChanged: ,
+                  SliderTheme(
+                    data: SliderTheme.of(context).copyWith(
+                      activeTrackColor: Colors.white,
+                      inactiveTrackColor: Color(0xFF8D8E98),
+                      thumbColor: Color(0xFFEB1555),
+                      overlayColor: Color(0x29EB1555),
+                      thumbShape: RoundSliderThumbShape(enabledThumbRadius: 15.0),
+                      overlayShape: RoundSliderOverlayShape(overlayRadius: 30.0)
+                    ),
+                    child: Slider.adaptive(value: _height.toDouble(), 
+                    min: 120.0,
+                    max: 220.0,
+                    onChanged: (double newValue){
+                        setState(() {
+                          _height = newValue.round();
+                        });
+                    },
+                    ),
                   ),
                 ],
               ),
@@ -106,7 +121,15 @@ class _InputPageState extends State<InputPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
-                    child: ReusableCard(colour: containerColor),
+                    child: ReusableCard(colour: containerColor,
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                          Text('WEIGHT',style: labelStyle,),
+                          Text('${weight}',style: KNumberTextStyle,),
+                      ],
+                    ),
+                    ),
                   ),
                   Expanded(
                     child: ReusableCard(colour: containerColor),
