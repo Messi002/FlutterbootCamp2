@@ -7,8 +7,8 @@ import 'package:app6/reusable_card.dart';
 
 const bottomContainerHeight = 60.0;
 const containerColor = Color(0xFF1D1E33);
-const activeCardColor = Color(0xff1d1e33);
-const inactiveCardColor = Color(0xff111328);
+const activeCardColor = Color(0xFF1D1E33);
+const inactiveCardColor = Color(0xFF111328);
 
 class InputPage extends StatefulWidget {
   const InputPage({Key? key}) : super(key: key);
@@ -17,6 +17,12 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+
+  Color maleCardColour = inactiveCardColor;
+  Color femaleCardColour = inactiveCardColor;
+
+  //male =1 and female =2
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -39,7 +45,7 @@ class _InputPageState extends State<InputPage> {
                         //TODO: write stateful function
                       },
                       child: ReusableCard(
-                        colour: containerColor,
+                        colour: maleCardColour,
                         cardChild: ReusableIconText(
                           iconText:'Male', icon: Icons.male,
                         ),
@@ -48,7 +54,7 @@ class _InputPageState extends State<InputPage> {
                   ),
                   Expanded(
                     child: ReusableCard(
-                      colour: containerColor,
+                      colour: femaleCardColour,
                        cardChild: ReusableIconText(
                         iconText:'Female', icon: Icons.female,
                       ),
