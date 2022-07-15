@@ -22,6 +22,7 @@ class _InputPageState extends State<InputPage> {
   Color femaleCardColour = inactiveCardColor;
 
    GenderType? selectedGen;
+   int height= 180;
 
   @override
   Widget build(BuildContext context) {
@@ -78,15 +79,24 @@ class _InputPageState extends State<InputPage> {
             Expanded(
               child: ReusableCard(colour: containerColor,
               cardChild: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text('HEIGHT',style: labelStyle,),
-                  SizedBox(height: 10.0,),
+                
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    textBaseline: TextBaseline.alphabetic,
                     children: [
-                      Text('180',style: )
+                      Text('${height}',style:KNumberTextStyle),
+                      Text('cm',style: labelStyle,),
                     ],
-                  )
+                  ),
+                  Slider.adaptive(value: height.toDouble(), 
+                  min: 120.0,
+                  max: 220.0,
+                  onChanged: ,
+                  ),
                 ],
               ),
               ),
