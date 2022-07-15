@@ -18,7 +18,6 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   @override
-  
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(

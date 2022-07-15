@@ -19,6 +19,7 @@ class ReusableIconText extends StatelessWidget {
         Icon(
           icon,
           size: 80.0,
+          semanticLabel: 'Icon',
           color: Color.fromARGB(255, 232, 232, 240),
         ),
         SizedBox(
