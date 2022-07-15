@@ -46,32 +46,23 @@ class _InputPageState extends State<InputPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
-                    child: GestureDetector(
-                      onTap: (){
+                    child: ReusableCard(
+                      onTapped: (){
                         setState(() {
-                            selectedGen = GenderType.male;
+                          selectedGen = GenderType.male;
                         });
                       },
-                      child: ReusableCard(
-                        colour: selectedGen == GenderType.male ? activeCardColor : inactiveCardColor,
-                        cardChild: ReusableIconText(
-                          iconText:'Male', icon: Icons.male,
-                        ),
+                      colour: selectedGen == GenderType.male ? activeCardColor : inactiveCardColor,
+                      cardChild: ReusableIconText(
+                        iconText:'Male', icon: Icons.male,
                       ),
                     ),
                   ),
                   Expanded(
-                    child: GestureDetector(
-                      onTap: (){
-                        setState(() {
-                          selectedGen = GenderType.female;
-                        });
-                      },
-                      child: ReusableCard(
-                        colour: selectedGen == GenderType.female ? activeCardColor : inactiveCardColor,
-                         cardChild: ReusableIconText(
-                          iconText:'Female', icon: Icons.female,
-                        ),
+                    child: ReusableCard(
+                      colour: selectedGen == GenderType.female ? activeCardColor : inactiveCardColor,
+                       cardChild: ReusableIconText(
+                        iconText:'Female', icon: Icons.female,
                       ),
                     ),
                   ),
