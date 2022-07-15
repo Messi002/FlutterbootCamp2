@@ -28,27 +28,7 @@ class _InputPageState extends State<InputPage> {
 
   late GenderType selectedGen;
 
-  //male =1 and female =2
-  // void updateState(GenderType selectedGen){
-    // maleCardColour == inactiveCardColor ? maleCardColour =activeCardColor && :  maleCardColour= inactiveCardColor;
-  //     if(selectedGen == GenderType.male){
-  //       if(maleCardColour == inactiveCardColor ){
-  //           maleCardColour =activeCardColor;
-  //           femaleCardColour = inactiveCardColor;
-  //       }else{
-  //                  maleCardColour= inactiveCardColor;
-  //       }
-  //     }
-  //      if(selectedGen == GenderType.female){
-  //       if(femaleCardColour == inactiveCardColor ){
-  //           femaleCardColour =activeCardColor;
-  //           maleCardColour = inactiveCardColor;
-  //       }else{
-  //                  femaleCardColour= inactiveCardColor;
-  //       }
-  //     }
-      
-  // }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -73,7 +53,7 @@ class _InputPageState extends State<InputPage> {
                         });
                       },
                       child: ReusableCard(
-                        colour: maleCardColour ,
+                        colour: selectedGen == GenderType.male ? activeCardColor : inactiveCardColor,
                         cardChild: ReusableIconText(
                           iconText:'Male', icon: Icons.male,
                         ),
@@ -88,7 +68,7 @@ class _InputPageState extends State<InputPage> {
                         });
                       },
                       child: ReusableCard(
-                        colour: femaleCardColour,
+                        colour: selectedGen == GenderType.female ? activeCardColor : inactiveCardColor,
                          cardChild: ReusableIconText(
                           iconText:'Female', icon: Icons.female,
                         ),
