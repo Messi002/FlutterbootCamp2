@@ -12,6 +12,11 @@ const KNumberTextStyle = TextStyle(
                         fontWeight: FontWeight.w900,
                       );
 
+const KTitleTextStyle = TextStyle(
+fontSize: 50.0,
+fontWeight: FontWeight.bold
+)
+
 class Palette { 
   static const bottomContainerMainColor = Color(0xFFEB1555);
   static const iconTextColor = Color(0xFF8D8E98);
