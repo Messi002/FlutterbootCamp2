@@ -56,3 +56,6 @@ Question('Some cats are actually allergic to humans', true),
 
 
 
+7 8 9 10} Reading
+ 11} brush teeth, wash innerwear,soak pant
+  12 1}shave, go collect bible

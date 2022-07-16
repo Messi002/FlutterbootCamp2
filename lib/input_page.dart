@@ -23,7 +23,7 @@ class _InputPageState extends State<InputPage> {
 
    GenderType? selectedGen;
     int _height= 180;
-    int weight = 60;
+    int weightNum = 60;
 
   @override
   Widget build(BuildContext context) {
@@ -82,14 +82,16 @@ class _InputPageState extends State<InputPage> {
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('HEIGHT',style: labelStyle,),
+                  Text('Height',style: labelStyle,),
                 
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.baseline,
                     textBaseline: TextBaseline.alphabetic,
                     children: [
-                      Text('${_height}',style:KNumberTextStyle),
+                      // Text('${_height}',style:KNumberTextStyle),
+                      Text(_height.toString(),style:KNumberTextStyle),
+
                       Text('cm',style: labelStyle,),
                     ],
                   ),
@@ -125,8 +127,8 @@ class _InputPageState extends State<InputPage> {
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                          Text('WEIGHT',style: labelStyle,),
-                          Text('${weight}',style: KNumberTextStyle,),
+                          Text('Weight',style: labelStyle,),
+                          Text(weightNum.toString(),style: KNumberTextStyle,),
                       ],
                     ),
                     ),
