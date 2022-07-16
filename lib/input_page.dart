@@ -2,9 +2,9 @@
 
 import 'package:app6/app_Colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'icons_content.dart';
 import 'package:app6/reusable_card.dart';
-
 
 enum GenderType {
   male,
@@ -21,9 +21,10 @@ class _InputPageState extends State<InputPage> {
   Color maleCardColour = inactiveCardColor;
   Color femaleCardColour = inactiveCardColor;
 
-   GenderType? selectedGen;
-    int _height= 180;
-    int weightNum = 60;
+  GenderType? selectedGen;
+  int _height = 180;
+  int weightNum = 60;
+  int _age = 19;
 
   @override
   Widget build(BuildContext context) {
@@ -78,44 +79,52 @@ class _InputPageState extends State<InputPage> {
               ),
             ),
             Expanded(
-              child: ReusableCard(colour: containerColor,
-              cardChild: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text('Height',style: labelStyle,),
-                
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.baseline,
-                    textBaseline: TextBaseline.alphabetic,
-                    children: [
-                      // Text('${_height}',style:KNumberTextStyle),
-                      Text(_height.toString(),style:KNumberTextStyle),
+              child: ReusableCard(
+                colour: containerColor,
+                cardChild: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Height',
+                      style: labelStyle,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.baseline,
+                      textBaseline: TextBaseline.alphabetic,
+                      children: [
+                        // Text('${_height}',style:KNumberTextStyle),
+                        Text(_height.toString(), style: KNumberTextStyle),
 
-                      Text('cm',style: labelStyle,),
-                    ],
-                  ),
-                  SliderTheme(
-                    data: SliderTheme.of(context).copyWith(
-                      activeTrackColor: Colors.white,
-                      inactiveTrackColor: Color(0xFF8D8E98),
-                      thumbColor: Color(0xFFEB1555),
-                      overlayColor: Color(0x29EB1555),
-                      thumbShape: RoundSliderThumbShape(enabledThumbRadius: 15.0),
-                      overlayShape: RoundSliderOverlayShape(overlayRadius: 30.0)
+                        Text(
+                          'cm',
+                          style: labelStyle,
+                        ),
+                      ],
                     ),
-                    child: Slider.adaptive(value: _height.toDouble(), 
-                    min: 120.0,
-                    max: 220.0,
-                    onChanged: (double newValue){
-                        setState(() {
-                          _height = newValue.round();
-                        });
-                    },
+                    SliderTheme(
+                      data: SliderTheme.of(context).copyWith(
+                          activeTrackColor: Colors.white,
+                          inactiveTrackColor: Color(0xFF8D8E98),
+                          thumbColor: Color(0xFFEB1555),
+                          overlayColor: Color(0x29EB1555),
+                          thumbShape:
+                              RoundSliderThumbShape(enabledThumbRadius: 15.0),
+                          overlayShape:
+                              RoundSliderOverlayShape(overlayRadius: 30.0)),
+                      child: Slider.adaptive(
+                        value: _height.toDouble(),
+                        min: 120.0,
+                        max: 220.0,
+                        onChanged: (double newValue) {
+                          setState(() {
+                            _height = newValue.round();
+                          });
+                        },
+                      ),
                     ),
-                  ),
-                ],
-              ),
+                  ],
+                ),
               ),
             ),
             Expanded(
@@ -123,56 +132,99 @@ class _InputPageState extends State<InputPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
-                    child: ReusableCard(colour: containerColor,
-                    cardChild: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                          Text('Weight',style: labelStyle,),
-                          Text(weightNum.toString(),style: KNumberTextStyle,),
+                    child: ReusableCard(
+                      colour: containerColor,
+                      cardChild: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            'Weight',
+                            style: labelStyle,
+                          ),
+                          Text(
+                            weightNum.toString(),
+                            style: KNumberTextStyle,
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              RoundIconButton(
-                                  Icon(Icons.remove),
-                                   () {
-                        setState(() {
-                          weightNum--;
-                        });
-                      }
-                              ),
+                              RoundIconButton(Icon(Icons.remove), () {
+                                setState(() {
+                                  weightNum--;
+                                });
+                              }),
                               SizedBox(width: 10.0),
-                              RoundIconButton(
-                                  Icon(Icons.add),  () {
-                        setState(() {
-                          weightNum++;
-                        });
-                      }
-                              ),
+                              RoundIconButton(Icon(Icons.add), () {
+                                setState(() {
+                                  weightNum++;
+                                });
+                              }),
                             ],
                           )
-                      ],
-                    ),
+                        ],
+                      ),
                     ),
                   ),
                   Expanded(
-                    child: ReusableCard(colour: containerColor,
-                    cardChild: Column(
-                      children:<Widget> [
-                        Text('Age',style: labelStyle,),
-                        Text('Age',style: labelStyle,),
-
-                      ],
-                    ),
+                    child: ReusableCard(
+                      colour: containerColor,
+                      cardChild: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            'Age',
+                            style: labelStyle,
+                          ),
+                          Text(
+                            _age.toString(),
+                            style: KNumberTextStyle,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              RoundIconButton(Icon(Icons.remove), () {
+                                setState(() {
+                                  _age--;
+                                });
+                              }),
+                              SizedBox(
+                                width: 10.0,
+                              ),
+                              RoundIconButton(Icon(Icons.add), () {
+                                setState(() {
+                                  _age++;
+                                });
+                              }),
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ],
               ),
             ),
-            Container(
-              height: bottomContainerHeight,
-              width: double.infinity,
-              margin: EdgeInsets.only(top: 10.0),
-              color: Palette.bottomContainerMainColor,
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, 'calScreen');
+              },
+              child: Container(
+                height: bottomContainerHeight,
+                width: double.infinity,
+                margin: EdgeInsets.only(top: 10.0),
+                color: Palette.bottomContainerMainColor,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text('CALCULATE',
+                        style: TextStyle(
+                            fontSize: 25.0,
+                            letterSpacing: 4.0,
+                            fontFamily: 'Pacifico',
+                            color: Colors.white))
+                  ],
+                ),
+              ),
             ),
           ],
         ),
@@ -180,10 +232,6 @@ class _InputPageState extends State<InputPage> {
     );
   }
 }
-
-
-
-
 
 class RoundIconButton extends StatelessWidget {
   RoundIconButton(this.buttonWidget, this.addSub);
@@ -194,14 +242,14 @@ class RoundIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return RawMaterialButton(
       onPressed: addSub,
-    elevation: 10.0,
-    shape: CircleBorder(),
-    fillColor: Color(0xFF4c4F5E),
-    constraints: BoxConstraints.tightFor(
-      width:56.0,
-      height: 56.0,
-    ),
-    child: buttonWidget,
+      elevation: 10.0,
+      shape: CircleBorder(),
+      fillColor: Color(0xFF4c4F5E),
+      constraints: BoxConstraints.tightFor(
+        width: 56.0,
+        height: 56.0,
+      ),
+      child: buttonWidget,
     );
   }
 }

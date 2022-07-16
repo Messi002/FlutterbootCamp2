@@ -3,6 +3,7 @@
 import 'package:app6/app_Colors.dart';
 import 'package:flutter/material.dart';
 import 'input_page.dart';
+import 'results_page.dart';
 
 void main() => runApp(const MyApp());
 
@@ -11,6 +12,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      initialRoute: 'HomePage',
+      routes: {
+        'HomePage' : (context) => InputPage(),
+        'calScreen' : (context) => ResultPage(),
+      },
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
   scaffoldBackgroundColor: Palette.kToDark, 
@@ -28,7 +34,7 @@ class MyApp extends StatelessWidget {
 //           secondary: Color.fromARGB(255, 177, 21, 204),
 //         ),
 //       ),
-      home: InputPage(),
+    
     );
   }
 }
