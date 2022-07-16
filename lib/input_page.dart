@@ -129,6 +129,17 @@ class _InputPageState extends State<InputPage> {
                       children: <Widget>[
                           Text('Weight',style: labelStyle,),
                           Text(weightNum.toString(),style: KNumberTextStyle,),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              RoundIconButton(ButtonWidget: null,),
+                              SizedBox(width: 10.0),
+                               FloatingActionButton(onPressed:null ,
+                              backgroundColor: Color(0xFF4c4F5E),
+                              child:Icon(Icons.add, color: Colors.white,)
+                              ),
+                            ],
+                          )
                       ],
                     ),
                     ),
@@ -148,6 +159,26 @@ class _InputPageState extends State<InputPage> {
           ],
         ),
       ),
+    );
+  }
+}
+
+
+
+class RoundIconButton extends StatelessWidget {
+  RoundIconButton({required this.ButtonWidget});
+  final Widget ButtonWidget;
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(onPressed: null,
+    elevation: 10.0,
+    shape: CircleBorder(),
+    fillColor: Color(0xFF4c4F5E),
+    constraints: BoxConstraints.tightFor(
+      width:56.0,
+      height: 56.0,
+    ),
+    child: ButtonWidget,
     );
   }
 }
