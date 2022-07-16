@@ -52,10 +52,3 @@ Question('Some cats are actually allergic to humans', true),
         'In West Virginia, USA, if you accidentally hit an animal with your car, you are free to take it home to eat.',
         true),
 
-
-
-
-
-7 8 9 10} Reading
- 11} brush teeth, wash innerwear,soak pant
-  12 1}shave, go collect bible

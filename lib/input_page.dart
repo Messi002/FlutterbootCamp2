@@ -132,11 +132,21 @@ class _InputPageState extends State<InputPage> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              RoundIconButton(ButtonWidget: null,),
+                              RoundIconButton(
+                                  Icon(Icons.remove),
+                                   () {
+                        setState(() {
+                          weightNum--;
+                        });
+                      }
+                              ),
                               SizedBox(width: 10.0),
-                               FloatingActionButton(onPressed:null ,
-                              backgroundColor: Color(0xFF4c4F5E),
-                              child:Icon(Icons.add, color: Colors.white,)
+                              RoundIconButton(
+                                  Icon(Icons.add),  () {
+                        setState(() {
+                          weightNum++;
+                        });
+                      }
                               ),
                             ],
                           )
@@ -145,7 +155,15 @@ class _InputPageState extends State<InputPage> {
                     ),
                   ),
                   Expanded(
-                    child: ReusableCard(colour: containerColor),
+                    child: ReusableCard(colour: containerColor,
+                    cardChild: Column(
+                      children:<Widget> [
+                        Text('Age',style: labelStyle,),
+                        Text('Age',style: labelStyle,),
+
+                      ],
+                    ),
+                    ),
                   ),
                 ],
               ),
@@ -165,12 +183,17 @@ class _InputPageState extends State<InputPage> {
 
 
 
+
+
 class RoundIconButton extends StatelessWidget {
-  RoundIconButton({required this.ButtonWidget});
-  final Widget ButtonWidget;
+  RoundIconButton(this.buttonWidget, this.addSub);
+
+  final Widget buttonWidget;
+  final VoidCallback addSub;
   @override
   Widget build(BuildContext context) {
-    return RawMaterialButton(onPressed: null,
+    return RawMaterialButton(
+      onPressed: addSub,
     elevation: 10.0,
     shape: CircleBorder(),
     fillColor: Color(0xFF4c4F5E),
@@ -178,7 +201,7 @@ class RoundIconButton extends StatelessWidget {
       width:56.0,
       height: 56.0,
     ),
-    child: ButtonWidget,
+    child: buttonWidget,
     );
   }
 }
