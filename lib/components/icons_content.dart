@@ -1,7 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'app_Colors.dart';
+
+import 'package:app6/app_Colors.dart';
 
 
 class ReusableIconText extends StatelessWidget {

@@ -3,8 +3,10 @@
 import 'package:app6/app_Colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'icons_content.dart';
-import 'package:app6/reusable_card.dart';
+import 'package:app6/components/icons_content.dart';
+import 'package:app6/components/reusable_card.dart';
+import 'package:app6/components/bottom_button.dart';
+
 
 enum GenderType {
   male,
@@ -32,7 +34,7 @@ class _InputPageState extends State<InputPage> {
       child: Scaffold(
         appBar: AppBar(
           title: const Text(
-            'Bmi Calculator',
+            'MIR Bmi',
             style: TextStyle(fontFamily: 'Pacifico'),
           ),
         ),
@@ -204,45 +206,17 @@ class _InputPageState extends State<InputPage> {
                 ],
               ),
             ),
-            CalButton(),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class CalButton extends StatelessWidget {
-  const CalButton({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
+            // CalButton('Calculate'), without required keyword
+            CalButton(labels: "CALCULATE", onPressed: () {
         Navigator.pushNamed(context, 'calScreen');
-      },
-      child: Container(
-        height: bottomContainerHeight,
-        width: double.infinity,
-        margin: EdgeInsets.only(top: 10.0),
-        color: Palette.bottomContainerMainColor,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text('CALCULATE',
-                style: TextStyle(
-                    fontSize: 25.0,
-                    letterSpacing: 4.0,
-                    fontFamily: 'Pacifico',
-                    color: Colors.white))
+      })
           ],
         ),
       ),
     );
   }
 }
+
 
 class RoundIconButton extends StatelessWidget {
   RoundIconButton(this.buttonWidget, this.addSub);

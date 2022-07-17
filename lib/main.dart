@@ -2,8 +2,8 @@
 
 import 'package:app6/app_Colors.dart';
 import 'package:flutter/material.dart';
-import 'input_page.dart';
-import 'results_page.dart';
+import 'package:app6/screens/input_page.dart';
+import 'package:app6/screens/results_page.dart';
 
 void main() => runApp(const MyApp());
 

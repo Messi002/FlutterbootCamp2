@@ -15,7 +15,7 @@ const KTitleTextStyle = TextStyle(
   fontSize: 30.0,
   letterSpacing: 3,
 // fontWeight: FontWeight.bold,
-  fontFamily: 'Pacifico',
+  // fontFamily: 'Pacifico',
 );
 
 const KResultTextStyle = TextStyle(
@@ -31,7 +31,7 @@ const KBMITextStyle = TextStyle(
 
 const KBodyTextStyle = TextStyle(
 
- fontSize: 22.0,
+ fontSize: 17.0,
 
 );
 
