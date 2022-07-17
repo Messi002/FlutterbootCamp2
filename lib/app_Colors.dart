@@ -13,9 +13,11 @@ const KNumberTextStyle = TextStyle(
                       );
 
 const KTitleTextStyle = TextStyle(
-fontSize: 50.0,
-fontWeight: FontWeight.bold
-)
+fontSize: 30.0,
+letterSpacing: 3,
+// fontWeight: FontWeight.bold,
+fontFamily: 'Pacifico',
+);
 
 class Palette { 
   static const bottomContainerMainColor = Color(0xFFEB1555);

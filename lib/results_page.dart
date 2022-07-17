@@ -1,6 +1,8 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:app6/app_Colors.dart';
 import 'package:flutter/material.dart';
-import 'app_Colors.dart';
+
 
 class ResultPage extends StatelessWidget {
   const ResultPage({Key? key}) : super(key: key);
@@ -11,7 +13,14 @@ class ResultPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Bmi Calculator',style:labelStyle)
       ),
-      body: const Center(child: Text('Hello',style: labelStyle,),),
+      body: Column(
+        children:<Widget> [
+          Expanded(child: Container(
+            margin: EdgeInsets.only(left:30.0),
+            child: Text('Your Results',style: KTitleTextStyle,),
+          ),),
+        ],
+      )
     );
   }
 }
