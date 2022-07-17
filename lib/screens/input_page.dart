@@ -1,12 +1,12 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, library_private_types_in_public_api, prefer_const_constructors_in_immutables
 
-import 'package:app6/app_Colors.dart';
+import 'package:MIRBMI/app_Colors.dart';
+import 'package:MIRBMI/screens/results_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:app6/components/icons_content.dart';
-import 'package:app6/components/reusable_card.dart';
-import 'package:app6/components/bottom_button.dart';
-
+import 'package:MIRBMI/components/icons_content.dart';
+import 'package:MIRBMI/components/reusable_card.dart';
+import 'package:MIRBMI/components/bottom_button.dart';
+import 'package:MIRBMI/calculator_brain.dart';
 
 enum GenderType {
   male,
@@ -207,16 +207,26 @@ class _InputPageState extends State<InputPage> {
               ),
             ),
             // CalButton('Calculate'), without required keyword
-            CalButton(labels: "CALCULATE", onPressed: () {
-        Navigator.pushNamed(context, 'calScreen');
-      })
+            CalButton(
+                labels: "CALCULATE",
+                onPressed: () {
+                  CalBrain calc = CalBrain(_height, weightNum);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ResultPage(
+                          bmiText: calc.getResults(),
+                          bmiResult: calc.calculateBMI(),
+                          bmiInter: calc.interpretation()),
+                    ),
+                  );
+                })
           ],
         ),
       ),
     );
   }
 }
-
 
 class RoundIconButton extends StatelessWidget {
   RoundIconButton(this.buttonWidget, this.addSub);

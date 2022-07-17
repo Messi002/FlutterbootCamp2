@@ -1,9 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:app6/app_Colors.dart';
+import 'package:MIRBMI/app_Colors.dart';
 import 'package:flutter/material.dart';
-import 'package:app6/screens/input_page.dart';
-import 'package:app6/screens/results_page.dart';
+import 'package:MIRBMI/screens/input_page.dart';
+import 'package:MIRBMI/screens/results_page.dart';
+import 'package:MIRBMI/calculator_brain.dart';
 
 void main() => runApp(const MyApp());
 
@@ -12,11 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: 'HomePage',
-      routes: {
-        'HomePage': (context) => InputPage(),
-        'calScreen': (context) => ResultPage(),
-      },
+     home: InputPage(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: Palette.kToDark,
