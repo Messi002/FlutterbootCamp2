@@ -4,8 +4,8 @@ const labelStyle = TextStyle(
     fontSize: 18.0, fontFamily: 'Pacifico', color: Palette.iconTextColor);
 const bottomContainerHeight = 60.0;
 const containerColor = Color(0xFF1D1E33);
-const activeCardColor = Color(0xFF1D1E33);
-const inactiveCardColor = Color(0xFF111328);
+const kActiveCardColor = Color(0xFF1D1E33);
+const kInactiveCardColor = Color(0xFF111328);
 const KNumberTextStyle = TextStyle(
   fontSize: 50.0,
   fontWeight: FontWeight.w900,
@@ -17,6 +17,24 @@ const KTitleTextStyle = TextStyle(
 // fontWeight: FontWeight.bold,
   fontFamily: 'Pacifico',
 );
+
+const KResultTextStyle = TextStyle(
+ color: Color(0xff24d876),
+ fontSize: 22.0,
+);
+
+const KBMITextStyle = TextStyle(
+
+ fontSize: 100.0,
+ fontWeight: FontWeight.bold,
+);
+
+const KBodyTextStyle = TextStyle(
+
+ fontSize: 22.0,
+
+);
+
 
 class Palette {
   static const bottomContainerMainColor = Color(0xFFEB1555);

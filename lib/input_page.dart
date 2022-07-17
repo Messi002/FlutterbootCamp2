@@ -18,8 +18,8 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-  Color maleCardColour = inactiveCardColor;
-  Color femaleCardColour = inactiveCardColor;
+  Color maleCardColour = kInactiveCardColor;
+  Color femaleCardColour = kInactiveCardColor;
 
   GenderType? selectedGen;
   int _height = 180;
@@ -51,8 +51,8 @@ class _InputPageState extends State<InputPage> {
                         });
                       },
                       colour: selectedGen == GenderType.male
-                          ? activeCardColor
-                          : inactiveCardColor,
+                          ? kActiveCardColor
+                          : kInactiveCardColor,
                       cardChild: ReusableIconText(
                         iconText: 'Male',
                         icon: Icons.male,
@@ -67,8 +67,8 @@ class _InputPageState extends State<InputPage> {
                         });
                       },
                       colour: selectedGen == GenderType.female
-                          ? activeCardColor
-                          : inactiveCardColor,
+                          ? kActiveCardColor
+                          : kInactiveCardColor,
                       cardChild: ReusableIconText(
                         iconText: 'Female',
                         icon: Icons.female,
@@ -204,28 +204,39 @@ class _InputPageState extends State<InputPage> {
                 ],
               ),
             ),
-            GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(context, 'calScreen');
-              },
-              child: Container(
-                height: bottomContainerHeight,
-                width: double.infinity,
-                margin: EdgeInsets.only(top: 10.0),
-                color: Palette.bottomContainerMainColor,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text('CALCULATE',
-                        style: TextStyle(
-                            fontSize: 25.0,
-                            letterSpacing: 4.0,
-                            fontFamily: 'Pacifico',
-                            color: Colors.white))
-                  ],
-                ),
-              ),
-            ),
+            CalButton(),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class CalButton extends StatelessWidget {
+  const CalButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, 'calScreen');
+      },
+      child: Container(
+        height: bottomContainerHeight,
+        width: double.infinity,
+        margin: EdgeInsets.only(top: 10.0),
+        color: Palette.bottomContainerMainColor,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text('CALCULATE',
+                style: TextStyle(
+                    fontSize: 25.0,
+                    letterSpacing: 4.0,
+                    fontFamily: 'Pacifico',
+                    color: Colors.white))
           ],
         ),
       ),
